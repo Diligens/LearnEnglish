@@ -6,6 +6,7 @@ This repository to records my process of learning English
 * [You’re Missing the Point of React](https://medium.com/@dan_abramov/youre-missing-the-point-of-react-a20e34a51e1a) (2)
 * [My React List](https://medium.com/@dan_abramov/my-react-list-862227952a8c)
 * [The Ugly Truth About Being an Entrepreneur](https://medium.com/swlh/the-ugly-truth-about-being-an-entrepreneur-3602408c9e1)
+* [Why I’ll Never F****** Freelance Ever Again](https://medium.com/swlh/why-ill-never-f-freelance-ever-again-4325889492df)
 
 ## Songs
 * [La Roux - In For The Kill](https://vk.com/music_research?w=wall-159941990_560)
