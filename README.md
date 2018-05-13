@@ -5,6 +5,7 @@ This repository to records my process of learning English
 * [10 Easiest Ways to Learn English](https://medium.com/@24x7hwh/10-easiest-ways-to-learn-english-26c85b963461)
 * [You’re Missing the Point of React](https://medium.com/@dan_abramov/youre-missing-the-point-of-react-a20e34a51e1a) (2)
 * [My React List](https://medium.com/@dan_abramov/my-react-list-862227952a8c)
+* [The Ugly Truth About Being an Entrepreneur](https://medium.com/swlh/the-ugly-truth-about-being-an-entrepreneur-3602408c9e1)
 
 ## Songs
 * [La Roux - In For The Kill](https://vk.com/music_research?w=wall-159941990_560)
