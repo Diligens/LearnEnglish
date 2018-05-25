@@ -11,3 +11,5 @@ This repository to records my process of learning English
 ## Songs
 * [La Roux - In For The Kill](https://vk.com/music_research?w=wall-159941990_560)
 * [No Doubt - Don't Speak](https://youtu.be/TR3Vdo5etCQ)
+* [Tammany Hall NYC - Cindy](https://youtu.be/3tPhUgZj8TM)
+* [The Coral - Dreaming Of You](https://youtu.be/QXt723fN1ss)
