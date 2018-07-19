@@ -1,0 +1,582 @@
+<html>
+    
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<head>
+        
+        <title>Тренажёр спряжения глаголов английского языка</title>
+        <script type="text/javascript">
+
+        	var pastVerbs = 
+        	{ 
+        		"open":"opened", "count":"counted", "hate":"hated", 
+        		"learn":"learnt", "order":"ordered", "catch":"caught", 
+				"create":"created", "own":"owned", "share":"shared", 
+				"hear":"heard", "cry":"cried", "lie":"lied", "pay":"paid",
+				"think":"thought", "like":"liked", "dance":"danced", 
+				"remember":"remebered", "travel":"traveled", "live":"lived", 
+				"play":"played", "sleep":"slept", "try":"tried",
+				"close":"closed", "lose":"lost", "collect":"collected", 
+				"feel":"felt", "love":"loved", "understand":"understood", 
+				"come":"came", "make":"made", "use":"used", "speak":"spoke", 
+				"find":"found", "ask":"asked", "wait":"waited", "die":"died", 
+				"fly":"flew", "walk":"walked", "want":"wanted", "run":"ran", 
+				"watch":"watched", "believe":"believed", "draw":"drew", 
+				"see":"saw", "win":"won", "wish":"wished", "read":"read", 
+				"sell":"sold", "cook":"cooked", "know":"knew", "work":"worked", 
+				"go":"went"
+			};
+
+        	function genSentenceEN(t, f, p, v)
+        	{
+        		function getAux()
+        		{
+        			if(t == "F")
+        			{
+        				if(f == "?" || f == ".")
+	        				return "will";
+	        			else
+	        				return "will not";
+        			}
+        			else if(t == "R")
+					{
+						if(f == "?")
+						{
+							if(p == "he" || p == "she")
+								return "does";
+							else
+								return "do";
+						}
+						else if(f == "~")
+						{
+							if(p == "he" || p == "she")
+								return "doesn't";
+							else
+								return "don't";
+						}
+						else 
+							return "";
+					}
+					else
+					{
+						if(f == "?")
+							return "did";
+						else if(f == "~")
+							return "didn't";
+						else
+							return "";
+					}
+        		}
+        		
+        		function getVerb()
+        		{
+        			if(t == "R" && (p == "he" || p == "she") && f == ".")
+        			{
+        				if(v.match(/(s|z|x|tch|ch|sh)$/))
+        					return v + "es";
+        				else if(v.match(/[bcdfghjklmnpqrstvwxz]y$/))
+        					return v.slice(0, v.length - 1) + "ies";
+        				
+        				return v + "s";
+        			}
+        			else if(t == "P" && f == ".")
+        				return pastVerbs[v];
+        			else
+        				return v;
+        		}
+        		
+        		if(f == "?")
+        			return getAux() + " " + p + " " + getVerb() + "?";
+        		
+       			return p + " " + getAux() + " " + getVerb() + ".";
+        	}
+        	
+        	var verb = "love";
+        	var activeInput = null;
+        	
+        	function getKeys(obj)
+        	{
+        		if(Object.keys)
+        			return Object.keys(obj);
+        			
+        		var res = [];
+        		
+        		for(var k in obj)
+        		{
+        			res.push(k);
+        		}
+        		
+        		return res;
+        	}
+        	
+        	function validateActiveInput()
+        	{
+        		if(!activeInput)
+        			return;
+        			
+      			var params = activeInput.id.split(/\s+/);
+      			
+      			var t = params[0];
+      			var f = params[1];
+      			var p = params[2];
+        			
+        		var valid = genSentenceEN(t, f, p, verb).replace(/\s+/g, "").toLowerCase();
+        		var actual = activeInput.value.replace(/\s+/g, "").toLowerCase();
+        		
+        		if(valid == actual)
+        			activeInput.style.color = "#080";
+        		else
+        			activeInput.style.color = "#800";
+        	}
+        	
+        	function clearInputs()
+        	{
+        		var inputs = document.getElementsByTagName('input');
+        		
+        		for(var i = 0; i < inputs.length; ++i)
+        			inputs[i].value = "";
+        	}
+        	
+        	function handleVerbClick(event)
+        	{
+        		if(verb == this.verb)
+        			return;
+        			
+        		verb = this.verb;
+        		
+        		clearInputs();
+        		
+        		document.getElementById("selected_verb").innerHTML = verb + " (" + pastVerbs[verb] + ")";
+        	}
+        	
+        	function selectRandomVerb()
+        	{
+        		var verbList = getKeys(pastVerbs);
+
+        		verb = verbList[Math.round(Math.random() * (verbList.length - 1))];
+        		
+        		clearInputs();
+        		
+        		document.getElementById("selected_verb").innerHTML = verb + " (" + pastVerbs[verb] + ")";
+        	}
+        	
+        	function handleInputFocus(event)
+        	{
+        		activeInput = this;
+        	}
+        	
+        	function handleInputBlur(event)
+        	{
+        		activeInput = null;
+        	}
+        	
+        	function handleKeyDown(event)
+        	{
+        		if(activeInput)
+        			window.setTimeout(validateActiveInput, 0);
+        	}
+        	
+        	function genVerbs()
+        	{
+        		var ul = document.getElementById("verbs");
+        		
+        		var verbList = getKeys(pastVerbs).sort();
+        		
+        		for(var i = 0; i < verbList.length; ++i)
+        		{
+        			var item = document.createElement("li");
+        			item.verb = verbList[i];
+        			item.innerHTML = verbList[i] + " (" + pastVerbs[verbList[i]] + ")";
+        			item.onclick = handleVerbClick;
+        			ul.appendChild(item);
+        		}
+        	}
+        	
+        	function init()
+        	{
+        		var inputs = document.getElementsByTagName("input");
+        		
+        		for(var i = 0; i < inputs.length; ++i)
+        		{
+        			inputs[i].onblur  = handleInputBlur;
+        			inputs[i].onfocus = handleInputFocus;
+        		}
+        		
+        		document.onkeydown = handleKeyDown;
+        		
+        		genVerbs();
+        		
+        		selectRandomVerb();
+        	}
+        	
+        	function fillValid()
+        	{
+        		var inputs = document.getElementsByTagName("input");
+        		
+        		for(var i = 0; i < inputs.length; ++i)
+        		{
+	      			var params = inputs[i].id.split(/\s+/);
+      			
+		  			var t = params[0];
+		  			var f = params[1];
+		  			var p = params[2];
+        			
+        			var valid = genSentenceEN(t, f, p, verb).replace(/\s+/g, " ");
+        			inputs[i].value = valid[0].toUpperCase() + valid.slice(1);
+        			inputs[i].style.color = "#080";
+        		}
+        	}
+        	
+        </script>
+        <style type="text/css">
+        	body
+        	{
+				font-family: Georgia;        	
+        	}
+        	
+        	table
+        	{
+        		border: 3px solid #06F;
+        		border-collapse: collapse;
+        	}
+        	
+        	table td
+        	{
+        		border: 1px solid #06F;
+        		padding: 4px;
+        	}
+        	
+        	table td.header
+        	{
+        		border: 3px solid #06F;
+        	}
+        	
+        	input[type="text"]
+        	{
+        		border: 1px solid #888;
+        	}
+        	
+        	table td div
+        	{
+        		clear:both;
+        	}
+        	
+        	table td div div
+        	{
+        		float:left;
+        	}
+        	
+        	table td div input[type="text"]
+        	{
+	        	float:right;
+        	}
+        	
+			div#verb_wrapper ul#verbs
+			{
+				list-style-type: none;
+				width: 32em;
+			}
+
+			div#verb_wrapper ul#verbs li
+			{
+				display: block;
+				float: left;
+				width: 16em;
+				cursor: default;
+			}
+			
+			div#verb_wrapper ul#verbs li:hover
+			{
+				background-color: #8F8;
+			}
+			
+			div#verb_wrapper ul#verbs + br
+			{
+				clear: left;
+			}
+
+			div#verb_wrapper
+			{
+				margin: 1em;
+			}
+    	
+        </style>
+    </head>
+    <body onload="init();">
+    	<h1>Тренажёр спряжения глаголов английского языка</h1>
+
+		<div style="float:left;">
+    	<b>1. Выбери глагол из списка</b><br>
+    	<div id="verb_wrapper">
+    		<ul id="verbs"></ul>
+    		<br>
+    	</div>
+    	<p>
+	    	<button onclick="selectRandomVerb();">Выбрать случайный</button>
+    	</p>
+    	<p>
+    		В скобках указана вторая форма глагола.
+    	</p>
+    	</div>
+    	
+		<div style="float:left;">
+    	<b>2. Заполни таблицу для каждого местоимения</b><br>
+    	
+    	<h2 id="selected_verb">love</h2>
+    	
+		<table style="clear:both;">
+			<tr><td class="header">Время</td><td class="header">Вопрос</td><td class="header">Утверждение</td><td class="header">Отрицание</td></tr>
+			<tr><td class="header">Будущее</td>
+				<td>
+					<div>
+						<div>I:</div>
+						<input id="F ? i" type="text">
+					</div>
+					<div>
+						<div>You:</div>
+						<input id="F ? you" type="text">
+					</div>
+					<div>
+						<div>He:</div>
+						<input id="F ? he" type="text">
+					</div>
+					<div>
+						<div>She:</div>
+						<input id="F ? she" type="text">
+					</div>
+					<div>
+						<div>We:</div>
+						<input id="F ? we" type="text">
+					</div>
+					<div>
+						<div>They:</div>
+						<input id="F ? they" type="text">
+					</div>
+				</td>
+				<td>
+					<div>
+						<div>I:</div>
+						<input id="F . i" type="text">
+					</div>
+					<div>
+						<div>You:</div>
+						<input id="F . you" type="text">
+					</div>
+					<div>
+						<div>He:</div>
+						<input id="F . he" type="text">
+					</div>
+					<div>
+						<div>She:</div>
+						<input id="F . she" type="text">
+					</div>
+					<div>
+						<div>We:</div>
+						<input id="F . we" type="text">
+					</div>
+					<div>
+						<div>They:</div>
+						<input id="F . they" type="text">
+					</div>
+				</td>
+				<td>
+					<div>
+						<div>I:</div>
+						<input id="F ~ i" type="text">
+					</div>
+					<div>
+						<div>You:</div>
+						<input id="F ~ you" type="text">
+					</div>
+					<div>
+						<div>He:</div>
+						<input id="F ~ he" type="text">
+					</div>
+					<div>
+						<div>She:</div>
+						<input id="F ~ she" type="text">
+					</div>
+					<div>
+						<div>We:</div>
+						<input id="F ~ we" type="text">
+					</div>
+					<div>
+						<div>They:</div>
+						<input id="F ~ they" type="text">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="header">Настоящее</td>
+				<td>
+					<div>
+						<div>I:</div>
+						<input id="R ? i" type="text">
+					</div>
+					<div>
+						<div>You:</div>
+						<input id="R ? you" type="text">
+					</div>
+					<div>
+						<div>He:</div>
+						<input id="R ? he" type="text">
+					</div>
+					<div>
+						<div>She:</div>
+						<input id="R ? she" type="text">
+					</div>
+					<div>
+						<div>We:</div>
+						<input id="R ? we" type="text">
+					</div>
+					<div>
+						<div>They:</div>
+						<input id="R ? they" type="text">
+					</div>
+				</td>
+				<td>
+					<div>
+						<div>I:</div>
+						<input id="R . i" type="text">
+					</div>
+					<div>
+						<div>You:</div>
+						<input id="R . you" type="text">
+					</div>
+					<div>
+						<div>He:</div>
+						<input id="R . he" type="text">
+					</div>
+					<div>
+						<div>She:</div>
+						<input id="R . she" type="text">
+					</div>
+					<div>
+						<div>We:</div>
+						<input id="R . we" type="text">
+					</div>
+					<div>
+						<div>They:</div>
+						<input id="R . they" type="text">
+					</div>
+				</td>
+				<td>
+					<div>
+						<div>I:</div>
+						<input id="R ~ i" type="text">
+					</div>
+					<div>
+						<div>You:</div>
+						<input id="R ~ you" type="text">
+					</div>
+					<div>
+						<div>He:</div>
+						<input id="R ~ he" type="text">
+					</div>
+					<div>
+						<div>She:</div>
+						<input id="R ~ she" type="text">
+					</div>
+					<div>
+						<div>We:</div>
+						<input id="R ~ we" type="text">
+					</div>
+					<div>
+						<div>They:</div>
+						<input id="R ~ they" type="text">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="header">Прошедшее</td>
+				<td>
+					<div>
+						<div>I:</div>
+						<input id="P ? i" type="text">
+					</div>
+					<div>
+						<div>You:</div>
+						<input id="P ? you" type="text">
+					</div>
+					<div>
+						<div>He:</div>
+						<input id="P ? he" type="text">
+					</div>
+					<div>
+						<div>She:</div>
+						<input id="P ? she" type="text">
+					</div>
+					<div>
+						<div>We:</div>
+						<input id="P ? we" type="text">
+					</div>
+					<div>
+						<div>They:</div>
+						<input id="P ? they" type="text">
+					</div>
+				</td>
+				<td>
+					<div>
+						<div>I:</div>
+						<input id="P . i" type="text">
+					</div>
+					<div>
+						<div>You:</div>
+						<input id="P . you" type="text">
+					</div>
+					<div>
+						<div>He:</div>
+						<input id="P . he" type="text">
+					</div>
+					<div>
+						<div>She:</div>
+						<input id="P . she" type="text">
+					</div>
+					<div>
+						<div>We:</div>
+						<input id="P . we" type="text">
+					</div>
+					<div>
+						<div>They:</div>
+						<input id="P . they" type="text">
+					</div>
+				</td>
+				<td>
+					<div>
+						<div>I:</div>
+						<input id="P ~ i" type="text">
+					</div>
+					<div>
+						<div>You:</div>
+						<input id="P ~ you" type="text">
+					</div>
+					<div>
+						<div>He:</div>
+						<input id="P ~ he" type="text">
+					</div>
+					<div>
+						<div>She:</div>
+						<input id="P ~ she" type="text">
+					</div>
+					<div>
+						<div>We:</div>
+						<input id="P ~ we" type="text">
+					</div>
+					<div>
+						<div>They:</div>
+						<input id="P ~ they" type="text">
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p>
+		<button onclick="fillValid();">Покажи мне правильные ответы</button><br>
+		</p>
+		<p>
+		Текст становится <span style="color: #080;">зелёным</span> 
+		если поле заполнено верно, и <span style="color: #800;">красным</span> 
+		если допущена ошибка.<br>
+		Не забудь знаки препинания (.?), их отсутствие считается ошибкой.
+		</p>
+		</div>
+    </body>
+</html>
