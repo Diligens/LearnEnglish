@@ -1,8 +1,8 @@
-# English :gb: :us: :closed_book:
-*Markdown help* - help.github.com/articles/basic-writing-and-formatting-syntax 
-*Emoji help* :thumbsup: - webpagefx.com/tools/emoji-cheat-sheet
-*Thesaurus and Dictionary* - thesaurus.com
-*vocabulary list* - vocabulary.cl/Lists.htm
+# :closed_book: English
+**Markdown help** - help.github.com/articles/basic-writing-and-formatting-syntax \
+**Emoji :thumbsup: help** - https://gist.github.com/rxaviers/7360908 \
+**Thesaurus and Dictionary** - thesaurus.com \
+**Vocabulary list** - vocabulary.cl/Lists.htm \
 
 ## My content
 ###  Vocabulary
