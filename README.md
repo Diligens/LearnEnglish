@@ -11,3 +11,7 @@
 - [development](./vocabulary/development.md)
 - [meetings, calls](./vocabulary/meetings.md)
 - [shopping](./vocabulary/shopping.md)
+
+
+###  Issues
+- [You know very little irregular verbs](https://github.com/Diligens/english/issues/1)
