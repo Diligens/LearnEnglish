@@ -16,4 +16,4 @@ Vocabulary list - http://www.vocabulary.cl/Lists.htm
 
 #### Helpers for editing:
 Markdown help - https://help.github.com/articles/basic-writing-and-formatting-syntax/ \
-Emoji help :thumbsup: - https://gist.github.com/rxaviers/7360908 \
+Emoji help :thumbsup: - https://gist.github.com/rxaviers/7360908 
