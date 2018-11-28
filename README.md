@@ -1,17 +1,14 @@
 # :closed_book: English
 **Markdown help** - https://help.github.com/articles/basic-writing-and-formatting-syntax/ \
-**Emoji :thumbsup: help** - https://gist.github.com/rxaviers/7360908 \
+**Emoji help :thumbsup:** - https://gist.github.com/rxaviers/7360908 \
 **Thesaurus and Dictionary** - https://www.thesaurus.com/ \
 **Vocabulary list** - http://www.vocabulary.cl/Lists.htm
 
 ## My content
-###  Vocabulary
-- [classroom](./vocabulary/classroom.md)
-- [daily](./vocabulary/daily.md)
-- [development](./vocabulary/development.md)
-- [meetings, calls](./vocabulary/meetings.md)
-- [shopping](./vocabulary/shopping.md)
+###  Vocabulary lists
+- [Class room](https://github.com/Diligens/english/issues/1)
+- [Daily routines](https://github.com/Diligens/english/issues/2)
+- [Development talsk](https://github.com/Diligens/english/issues/3)
+- [Meetings. Calls](https://github.com/Diligens/english/issues/4)
+- [Shopping](https://github.com/Diligens/english/issues/5)
 
-
-###  Issues
-- [You know very little irregular verbs](https://github.com/Diligens/english/issues/1)
