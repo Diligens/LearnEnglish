@@ -7,6 +7,7 @@ The main goal of this repository is to help myself in learning and practicing En
 - [Development talsk](https://github.com/Diligens/english/issues/3)
 - [Meetings. Calls](https://github.com/Diligens/english/issues/4)
 - [Shopping](https://github.com/Diligens/english/issues/5)
+- [Prepositions](https://github.com/Diligens/english/issues/6)
 
 -----------------------------------------------------------------------------------------------------------------
 #### Helpers for the language:
