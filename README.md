@@ -11,8 +11,11 @@ The main goal of this repository is to help myself in learning and practicing En
 
 -----------------------------------------------------------------------------------------------------------------
 #### Helpers for the language:
-Thesaurus and Dictionary - https://www.thesaurus.com/ \
-Vocabulary list - http://www.vocabulary.cl/Lists.htm
+### Thesaurus and Dictionary 
+https://www.thesaurus.com/ \
+https://dictionary.cambridge.org/ru/
+### Vocabulary lists 
+http://www.vocabulary.cl/Lists.htm
 
 #### Helpers for editing:
 Markdown help - https://help.github.com/articles/basic-writing-and-formatting-syntax/ \
