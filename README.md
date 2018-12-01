@@ -1,7 +1,7 @@
 # :closed_book: My English
 The main goal of this repository is to help myself in learning and practicing English language.
 
-###  Vocabulary lists
+### My vocabulary lists
 - [Class room](https://github.com/Diligens/english/issues/1)
 - [Daily routines](https://github.com/Diligens/english/issues/2)
 - [Development talsk](https://github.com/Diligens/english/issues/3)
