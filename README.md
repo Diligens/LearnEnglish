@@ -15,7 +15,7 @@ The main goal of this repository is to help myself in learning and practicing En
 https://www.thesaurus.com/ \
 https://dictionary.cambridge.org/ru/
 ### Vocabulary lists
-https://seniorsoftwarevlogger.com/2018/05/11/100-english-words-for-programmer/
+https://seniorsoftwarevlogger.com/2018/05/11/100-english-words-for-programmer/ \
 http://www.vocabulary.cl/Lists.htm
 
 #### Helpers for editing:
